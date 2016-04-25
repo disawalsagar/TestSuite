@@ -11,7 +11,7 @@ To Access a data set hosted as an Amazon EBS snapshot: Sign up for an AWS accoun
 Size of the complete dataset is 15Gb. It contains Data and statistics from the US Department of Transportation on Aviation, Maritime, Highway, Transit, Rail, Pipeline, Bike/Pedestrian and other modes of transportation. Out of which we are using just the Airline data.  In aviation we using airline_ontime dataset which has size of 3.8Gb. The dataset is in Zipped file format from 1988 to 2008.  The number of  columns varies from 35 to 56.
 
 ##Flow of Data
-![alt text](https://github.com/disawalsagar/TestSuite/blob/master/flow.png "Flow")
+![alt text](https://github.com/disawalsagar/TestSuite/blob/master/images/flow.png "Flow")
 
 
 Raw data is in Zipped format which is converted to unzipped file format using Map Reduce.
