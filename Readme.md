@@ -14,4 +14,10 @@ Size of the complete dataset is 15Gb. It contains Data and statistics from the U
 ![alt text](https://github.com/disawalsagar/TestSuite/blob/master/flow.png "Flow")
 
 
+Raw data is in Zipped format which is converted to unzipped file format using Map Reduce.
+The ouput from MR is feeded to Spark as well as Pig to do cleaning.
+External table 'airline'  created is created on the data derived from spark job.
+The ouput of Pig is stored in HBase table 'airline'
+
+
  
