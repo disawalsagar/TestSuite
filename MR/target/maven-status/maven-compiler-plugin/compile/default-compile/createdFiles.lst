@@ -1,0 +1,6 @@
+Foo/App.class
+Foo/ZipFileInputFormat.class
+Foo/Unzipper$SumReducer.class
+Foo/Unzipper.class
+Foo/ZipFileRecordReader.class
+Foo/Unzipper$Driver.class
