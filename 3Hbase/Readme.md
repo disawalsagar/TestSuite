@@ -25,5 +25,9 @@ Scan ‘airline’
 hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.separator="," -Dimporttsv.columns=HBASE_ROW_KEY,  d:`id`,d:`year`,d:`quarter`,d:`month` ,d:`dayofmonth`,d:`dayofweek` ,d:`flightdate` ,d:`uniquecarrier`,d:`airlineid` ,d:`carrier` ,d:`tailnum` ,d:`flightnum` ,d:`origin`,d:`origincityname`, d:`originstate` ,d:`originstatefips` ,d:`originstatename` ,d:`originwac` ,d:`dest` ,d:`destcityname` ,d:`deststate` ,d:`deststatefips` ,d:`deststatename` ,d:`destwac` ,d:`crsdeptime` ,d:`deptime` ,d:`depdelay` ,d:`depdelayminutes`,d:`depdel15` ,d:`departuredelaygroups` ,d:`deptimeblk` ,d:`taxiout` ,d:`wheelsoff` ,d:`wheelson` ,d:`taxiin` ,d:`crsarrtime`,d:`arrtime` ,d:`arrdelay` ,d:`arrdelayminutes` ,d:`arrdel15` ,d:`arrivaldelaygroups` ,d:`arrtimeblk` ,d:`cancelled` ,d:`cancellationcode` ,d:`diverted` ,d:`crselapsedtime` ,d:`actualelapsedtime` ,d:`airtime` ,d:`flights` ,d:`distance` ,d:`distancegroup`,d:`carrierdelay` , d:`weatherdelay` , d:`nasdelay` , d:`securitydelay` ,d:`lateaircraftdelay` 
 airline  /user/root/Out_Pig
 ```
+###RowKey Design 
+First column to be inserted into hbase should be row key which is unique for every row. 
+For this problem it is combination of three column date, originstate and destination state. The first column is added in Pig/Spark job where it is easy to generate. 
+
 
 
