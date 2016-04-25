@@ -10,12 +10,12 @@ To Access a data set hosted as an Amazon EBS snapshot: Sign up for an AWS accoun
 
 Size of the complete dataset is 15Gb. It contains Data and statistics from the US Department of Transportation on Aviation, Maritime, Highway, Transit, Rail, Pipeline, Bike/Pedestrian and other modes of transportation. Out of which we are using just the Airline data.  In aviation we using airline_ontime dataset which has size of 3.8Gb. The dataset is in Zipped file format from 1988 to 2008.  The number of  columns varies from 35 to 56.
 
-##Flow of data
+##Flow of Data
 ![alt text](https://github.com/disawalsagar/TestSuite/blob/master/flow.png "Flow")
 
 
 Raw data is in Zipped format which is converted to unzipped file format using Map Reduce.
-The ouput from MR is feeded to Spark as well as Pig to do cleaning.
+The ouput from MR is feeded to Spark as well as Pig to do cleaning. Spark and Pig do the same job. 
 External table 'airline'  created is created on the data derived from spark job.
 The ouput of Pig is stored in HBase table 'airline'
 
