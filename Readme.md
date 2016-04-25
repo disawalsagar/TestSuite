@@ -1,7 +1,7 @@
 #Test Suite Documentation
 
 ##Objective
-Building a test suite involving all the tools of Hadoop ecosystem. Till now the tools been worked on are MapReduce, Storm, Hive, Hbase, Pig. 
+Building a test suite involving all the tools of Hadoop ecosystem. Till now the tools have been worked on are MapReduce, Storm, Hive, Hbase, Pig. 
 
 ##Data
 The Data gathered consist of Airline database downloaded from Amazon’s public open datasets under [Transportation category](https://aws.amazon.com/datasets/transportation-databases/?tag=datasets%23keywords%23economics)
