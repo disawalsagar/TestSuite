@@ -22,27 +22,21 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipInputStream;
 
-/**
- * This RecordReader implementation extracts individual files from a ZIP
- * file and hands them over to the Mapper. The "key" is the decompressed
- * file name, the "value" is the file contents.
- */
+
 public class ZipFileRecordReader
         extends RecordReader<Text, BytesWritable>
 {
-    /** InputStream used to read the ZIP file from the FileSystem */
+    
     private FSDataInputStream fsin;
 
-    /** ZIP file parser/decompresser */
     private ZipInputStream zip;
 
-    /** Uncompressed file name */
     private Text currentKey;
 
-    /** Uncompressed file contents */
+  
     private BytesWritable currentValue;
 
-    /** Used to indicate progress */
+  
     private boolean isFinished = false;
 
     /**
@@ -57,20 +51,12 @@ public class ZipFileRecordReader
         Path path = split.getPath();
         FileSystem fs = path.getFileSystem( conf );
 
-        // Open the stream
+  
         fsin = fs.open( path );
         zip = new ZipInputStream( fsin );
     }
 
-    /**
-     * This is where the magic happens, each ZipEntry is decompressed and
-     * readied for the Mapper. The contents of each file is held *in memory*
-     * in a BytesWritable object.
-     *
-     * If the ZipFileInputFormat has been set to Lenient (not the default),
-     * certain exceptions will be gracefully ignored to prevent a larger job
-     * from failing.
-     */
+ 
     @Override
     public boolean nextKeyValue()
             throws IOException, InterruptedException
@@ -86,17 +72,16 @@ public class ZipFileRecordReader
                 throw e;
         }
 
-        // Sanity check
+   
         if ( entry == null )
         {
             isFinished = true;
             return false;
         }
 
-        // Filename
         currentKey = new Text( entry.getName() );
 
-        // Read the file contents
+
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         byte[] temp = new byte[8192];
         while ( true )
@@ -124,39 +109,7 @@ public class ZipFileRecordReader
         return true;
     }
 
-    /**
-     * Rather than calculating progress, we just keep it simple
-     */
-    @Override
-    public float getProgress()
-            throws IOException, InterruptedException
-    {
-        return isFinished ? 1 : 0;
-    }
-
-    /**
-     * Returns the current key (name of the zipped file)
-     */
-    @Override
-    public Text getCurrentKey()
-            throws IOException, InterruptedException
-    {
-        return currentKey;
-    }
-
-    /**
-     * Returns the current value (contents of the zipped file)
-     */
-    @Override
-    public BytesWritable getCurrentValue()
-            throws IOException, InterruptedException
-    {
-        return currentValue;
-    }
-
-    /**
-     * Close quietly, ignoring any exceptions
-     */
+    
     @Override
     public void close()
             throws IOException
