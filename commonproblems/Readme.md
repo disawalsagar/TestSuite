@@ -24,7 +24,7 @@ mount /dev/sdb /data
 Step2
 ```
 In VM setting
-```
+
 1. new disk
 2. vdi or vmdk 
 3. dynamic
