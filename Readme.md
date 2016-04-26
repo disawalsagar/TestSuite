@@ -19,5 +19,8 @@ The ouput from MR is feeded to Spark as well as Pig to do cleaning. Spark and Pi
 External table 'airline'  created is created on the data derived from spark job.
 The ouput of Pig is stored in HBase table 'airline'
 
+##Virtual Machine
 
+Oracle VM VirtualBox Manager
+Hortonworks Sandbox with HDP 2.3.2
  

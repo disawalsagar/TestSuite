@@ -10,5 +10,18 @@ Parses the chunks into Key/Value pairs.
 #####ZipFileInputFormat and ZipFileRecordReader
 ZipFileInputFormat is thin wrapper around FileInputFormat to prevent it from splitting files – ZIP files aren’t a split-able file format. ZipFileRecordReader where it uses the Java built in ZipInputStream to parse out each ZipEntry.
 
+#####Script
+Create jar 
+```
+mvn package
+
+```
+The jar can be found at projectdirectory/target/
+
+Run the jar
+```
+yarn jar Foo-1.0-SNAPSHOT.jar 'Foo.Unzipper$Driver' airline_ontime/ out
+
+```
  
 
