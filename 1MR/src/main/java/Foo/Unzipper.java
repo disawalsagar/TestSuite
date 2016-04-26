@@ -51,6 +51,7 @@ public class Unzipper {
             // Specify mapper, reducer classes.
             job.setMapperClass(MyMapper.class);
             job.setNumReduceTasks(0);
+            //We need reducer for testing 
           // job.setReducerClass(SumReducer.class);
 
             // Specify key value types.
@@ -72,8 +73,8 @@ public class Unzipper {
         public void map(Text key, BytesWritable value, Context context )
                 throws IOException, InterruptedException
         {
-            // NOTE: the filename is the *full* path within the ZIP file
-            // e.g. "subdir1/subsubdir2/Ulysses-18.txt"
+            // the filename is the *full* path within the ZIP file
+            
             String filename = key.toString();
            // LOG.info( "map: " + filename );
 
